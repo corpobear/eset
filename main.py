@@ -15,8 +15,11 @@ async def lifespan(app):
 
 def create_app():
     app = FastAPI(lifespan=lifespan)
+    
     from endpoints.scan import router
+    
     app.include_router(router)
+    
     return app
 
 
